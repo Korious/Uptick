@@ -1,0 +1,20 @@
+# Dockerfile
+
+# Use Node.js base image
+FROM node:14
+
+# Set working directory
+WORKDIR /app
+
+# Install dependencies
+COPY package*.json ./
+RUN npm install
+
+# Copy source code
+COPY . .
+
+# Expose the port your app runs on
+EXPOSE 3542
+
+# Command to run your app using node
+CMD ["node", "index.js"]
